@@ -90,7 +90,7 @@ def test_quantity_less_than_returns_list_with_fewer_elements(minimum, maximum, q
 # Uniqueness of output values
 
 def test_output_values_are_unique():
-    assert len(set(get_numbers_ticket(1, 10, 5))) == 5
+    assert len(set(get_numbers_ticket(1, 100, 50))) == 50
 
 # Sortedness of output values
 

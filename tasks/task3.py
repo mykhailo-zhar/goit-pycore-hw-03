@@ -15,10 +15,13 @@ def normalize_phone_number(phone: str, country_code: str = '38') -> str:
 
     Args:
         phone: The phone number to normalize.
-    """
-    if not isinstance(phone, str):
-        raise TypeError(f"Phone must be a string, got {type(phone)}")
+
+    Raises:
+        ValueError: If the phone number is not between 12 and 15 digits.
     
+    Returns:
+        The normalized phone number.
+    """    
     phone_digits = _convert_to_digits(phone)
     phone_digits = _convert_to_international(phone_digits, country_code)
     if len(phone_digits) < 12 or len(phone_digits) > 15:
