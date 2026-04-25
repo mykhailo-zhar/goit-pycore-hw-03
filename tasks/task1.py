@@ -16,7 +16,7 @@ def get_days_from_today(date: str) -> int:
         An integer representing the number of days between the given date and today.
     """
     if not isinstance(date, str):
-        raise TypeError
+        raise TypeError(f"Date must be a string, got {type(date)}")
     # Parse date or raise ValueError
     parsed_date = datetime.strptime(date, "%Y-%m-%d")
     today = datetime.today()    
