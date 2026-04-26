@@ -1,11 +1,14 @@
+import random
+from datetime import datetime, timedelta
 
 import pytest
-from datetime import datetime, timedelta
-import random   
+
 from tasks.task1 import get_days_from_today
+
 
 def get_date_str_with_offset(offset: int) -> str:
     return (datetime.now() + timedelta(days=offset)).strftime("%Y-%m-%d")
+
 
 def test_valid_date_string_returns_int():
     result = get_days_from_today("2000-01-01")
@@ -27,9 +30,11 @@ def test_prior_to_today_returns_positive():
     date_str = get_date_str_with_offset(offset)
     assert get_days_from_today(date_str) == -offset
 
+
 def test_today_returns_zero():
     date_str = get_date_str_with_offset(0)
     assert get_days_from_today(date_str) == 0
+
 
 def test_after_today_returns_negative():
     offset = random.randint(1, 100)
